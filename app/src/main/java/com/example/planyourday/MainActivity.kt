@@ -32,6 +32,8 @@ class MainActivity : AppCompatActivity() {
             adapter.notifyDataSetChanged()
         }
 
+        // Swipe to delete
+
 
     }
 }

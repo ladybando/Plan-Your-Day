@@ -36,6 +36,12 @@ class Adapter(private val listOfTasks: MutableList<Task>) :
         val item = listOfTasks.get(position)
         holder.title.setText(item.title)
 
+        // Strike through text on checkbox click
+        holder.checkbox.setOnClickListener {
+
+            holder.title.setPaintFlags(holder.title.getPaintFlags() or Paint.STRIKE_THRU_TEXT_FLAG)
+        }
+
 
     }
 
@@ -44,6 +50,8 @@ class Adapter(private val listOfTasks: MutableList<Task>) :
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val checkbox: CheckBox = itemView.findViewById<CheckBox>(R.id.checkbox)
+
         // Your holder should contain and initialize a member variable
         // for any view that will be set as you render a row
         val title: TextView = itemView.findViewById<TextView>(R.id.enteredTask)
