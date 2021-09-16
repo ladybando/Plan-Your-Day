@@ -24,23 +24,21 @@ class Adapter(private val listOfTasks: MutableList<Task>) :
 
     }
 
-    private fun toggleStrikeThrough(enteredTask: TextView, isChecked: Boolean) {
-        if (isChecked) {
-            enteredTask.paintFlags = enteredTask.paintFlags or STRIKE_THRU_TEXT_FLAG
-        } else {
-            enteredTask.paintFlags = enteredTask.paintFlags or STRIKE_THRU_TEXT_FLAG.inv()
-        }
-    }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = listOfTasks.get(position)
+
         holder.title.setText(item.title)
 
         // Strike through text on checkbox click
-        holder.checkbox.setOnClickListener {
 
-            holder.title.setPaintFlags(holder.title.getPaintFlags() or Paint.STRIKE_THRU_TEXT_FLAG)
-        }
+
+        holder.checkbox.onCheckBoxClick
+
+        // On click of task go to edit screen
+        /*holder.itemView.setOnClickListener {
+
+        }*/
 
 
     }
