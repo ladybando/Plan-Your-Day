@@ -3,8 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.4166666666666667" />
-        <entry key="app/src/main/res/layout/tasksview.xml" value="0.2390625" />
+        <entry key="..\:/Users/brute/AndroidStudioProjects/PlanYourDay/app/src/main/res/layout/activity_main.xml" value="0.11096014492753623" />
+        <entry key="..\:/Users/brute/AndroidStudioProjects/PlanYourDay/app/src/main/res/layout/fragment_edit_screen.xml" value="0.22333333333333336" />
+        <entry key="..\:/Users/brute/AndroidStudioProjects/PlanYourDay/app/src/main/res/layout/tasksview.xml" value="0.1634963768115942" />
       </map>
     </option>
   </component>

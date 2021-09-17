@@ -71,5 +71,9 @@
         android:text="+"
         android:textSize="25sp" />
 
+    <androidx.fragment.app.FragmentContainerView
+        android:layout_width="0dp"
+        android:layout_height="0dp" />
+
 
 </RelativeLayout>
