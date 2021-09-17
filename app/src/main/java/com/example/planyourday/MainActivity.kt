@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
 import android.widget.Adapter
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.planyourday.databinding.ActivityMainBinding
 import java.text.SimpleDateFormat
 import java.time.LocalDate
@@ -33,7 +35,15 @@ class MainActivity : AppCompatActivity() {
         }
 
         // Swipe to delete
-
+        val swipeToDeleteCallBack = object : SwipeToDeleteCallBack() {
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                val position = viewHolder.adapterPosition
+                listOfTasks.removeAt(position)
+                adapter.notifyItemRemoved(position)
+            }
+        }
+        val itemTouchHelper = ItemTouchHelper(swipeToDeleteCallBack)
+        itemTouchHelper.attachToRecyclerView(binding.recyclerView)
 
     }
 }
