@@ -6,7 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
+import android.widget.EditText
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.planyourday.databinding.TasksviewBinding
 
@@ -34,11 +36,6 @@ class Adapter(private val listOfTasks: MutableList<Task>) :
         val checkbox = holder.checkbox
         holder.title.setText(item.title)
 
-        // Strike through text on checkbox click
-        /*checkbox.setOnClickListener{
-            holder.title.setPaintFlags(holder.title.getPaintFlags() or Paint.STRIKE_THRU_TEXT_FLAG)
-        }
-        */
         // Add and remove strikethrough when checked
         checkbox.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
@@ -46,13 +43,17 @@ class Adapter(private val listOfTasks: MutableList<Task>) :
             } else {
                 holder.title.paintFlags = Paint.ANTI_ALIAS_FLAG
             }
-
         }
 
         // On click of task go to edit screen
-        /*holder.itemView.setOnClickListener {
+        holder.itemView.setOnClickListener(object :View.OnClickListener{
+            override fun onClick(v: View?) {
 
-        }*/
+                val activity = v!!.context as AppCompatActivity
+                val editFragment = EditFragment()
+                activity.supportFragmentManager.beginTransaction().replace(R.id.rec,editFragment).addToBackStack(null).commit()
+            }
+        })
 
 
     }
@@ -69,5 +70,8 @@ class Adapter(private val listOfTasks: MutableList<Task>) :
         val title: TextView = itemView.findViewById<TextView>(R.id.enteredTask)
     }
 }
+
+
+
 
 

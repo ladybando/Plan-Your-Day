@@ -3,23 +3,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/background1"
-    tools:context=".EditScreenFragment">
-
-    <!-- TODO: Update blank fragment layout -->
+    tools:context=".EditFragment">
 
     <EditText
-        android:id="@+id/editedTask"
+        android:id="@+id/editTask"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="-25dp"/>
 
     <Button
+        android:id="@+id/saveBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SUBMIT"
+        android:text="SAVE"
         android:textStyle="bold"
         android:layout_gravity="center"
         android:layout_marginTop="55dp"
