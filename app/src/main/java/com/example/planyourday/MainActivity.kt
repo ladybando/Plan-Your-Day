@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
     //val navController = findNavController(R.id.nav_host_fragment)
 
     private lateinit var binding: ActivityMainBinding
-    val args: SafeVarargs by navArgs()
+    val args: MainActivityArgs by navArgs()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
