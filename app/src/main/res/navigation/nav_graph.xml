@@ -5,17 +5,6 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/mainActivity">
 
-    <activity
-        android:id="@+id/mainActivity"
-        android:name="com.example.planyourday.MainActivity"
-        android:label="activity_main"
-        tools:layout="@layout/activity_main" >
-        <argument
-            android:name="userEditTask"
-            app:argType="string"/>
-            />
-    </activity>
-
     <fragment
         android:id="@+id/editFragment"
         android:name="com.example.planyourday.EditFragment"
@@ -25,5 +14,15 @@
             android:id="@+id/action_editFragment_to_mainActivity"
             app:destination="@id/mainActivity" />
     </fragment>
+
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.example.planyourday.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" >
+        <argument
+            android:name="userEditTask"
+            app:argType="string"/>
+    </activity>
 
 </navigation>

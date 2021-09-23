@@ -45,13 +45,15 @@ class Adapter(private val listOfTasks: MutableList<Task>) :
             }
         }
 
-        // On click of task go to edit screen
+
+
+        // On long click of task go to edit screen
         holder.itemView.setOnClickListener(object :View.OnClickListener{
             override fun onClick(v: View?) {
 
                 val activity = v!!.context as AppCompatActivity
                 val editFragment = EditFragment()
-                activity.supportFragmentManager.beginTransaction().replace(R.id.rec,editFragment).addToBackStack(null).commit()
+                activity.supportFragmentManager.beginTransaction().replace(R.id.mainActivity,editFragment).addToBackStack(null).commit()
             }
         })
 

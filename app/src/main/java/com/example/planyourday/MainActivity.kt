@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
     //val navController = findNavController(R.id.nav_host_fragment)
 
     private lateinit var binding: ActivityMainBinding
-    val args: MainActivityArgs by navArgs()
+    //private val args: MainActivityArgs by navArgs()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -55,6 +55,15 @@ class MainActivity : AppCompatActivity() {
         val itemTouchHelper = ItemTouchHelper(swipeToDeleteCallBack)
         itemTouchHelper.attachToRecyclerView(binding.recyclerView)
 
+       //args.userEditTask
+
+        fun updated(task: Task) {
+            binding.task.setText(task.title)
+        }
 
     }
+
+
 }
+
+
