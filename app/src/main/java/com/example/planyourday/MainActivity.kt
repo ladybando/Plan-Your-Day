@@ -30,6 +30,11 @@ class MainActivity : AppCompatActivity() {
         val adapter = Adapter(listOfTasks)
         binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
+        
+        //sets main activity as host fragment
+        val navHostFragment = supportFragmentManager
+            .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        navController = navHostFragment.navController
 
         // Display current user date in textView
         val dateDisplay: TextView = findViewById(R.id.date)
