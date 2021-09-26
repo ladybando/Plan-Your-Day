@@ -8,75 +8,12 @@
     android:background="@drawable/background1"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="My Day"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:textSize="30sp"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"/>
-
-    <TextView
-        android:id="@+id/date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/title"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="-30dp"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        tools:text="Monday, September 13" />
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="503dp"
-            android:layout_marginTop="110dp"
-            android:isScrollContainer="true"
-            tools:listitem="@layout/tasksview">
-
-        </androidx.recyclerview.widget.RecyclerView>
-
-    </FrameLayout>
-
-    <EditText
-        android:id="@+id/task"
-        android:layout_width="280dp"
-        android:layout_height="45dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="675dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/custom_edit_text"
-        android:hint=" Enter a task " />
-
-    <Button
-        android:id="@+id/addButton"
-        android:layout_width="51dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="28dp"
-        android:layout_marginVertical="10dp"
-        android:backgroundTint="@color/addBtn"
-        android:text="+"
-        android:textSize="25sp" />
-
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/nav_host_fragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:defaultNavHost="true"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         app:navGraph="@navigation/nav_graph"/>
 
 

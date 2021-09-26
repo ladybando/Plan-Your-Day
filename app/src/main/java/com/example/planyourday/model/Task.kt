@@ -1,4 +1,4 @@
-package com.example.planyourday
+package com.example.planyourday.model
 
 data class Task(
     val title: String,

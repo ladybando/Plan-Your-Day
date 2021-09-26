@@ -3,6 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/ayana/AndroidStudioProjects/Plan-Your-Day/app/src/main/res/layout/activity_main.xml" value="0.275" />
+        <entry key="..\:/Users/ayana/AndroidStudioProjects/Plan-Your-Day/app/src/main/res/layout/fragment_add_task.xml" value="0.14375" />
+        <entry key="..\:/Users/ayana/AndroidStudioProjects/Plan-Your-Day/app/src/main/res/layout/fragment_edit.xml" value="0.275" />
+        <entry key="..\:/Users/ayana/AndroidStudioProjects/Plan-Your-Day/app/src/main/res/layout/fragment_list_view.xml" value="0.2" />
+        <entry key="..\:/Users/ayana/AndroidStudioProjects/Plan-Your-Day/app/src/main/res/layout/item_layout.xml" value="0.132" />
+        <entry key="..\:/Users/ayana/AndroidStudioProjects/Plan-Your-Day/app/src/main/res/layout/task_layout.xml" value="0.275" />
+        <entry key="..\:/Users/ayana/AndroidStudioProjects/Plan-Your-Day/app/src/main/res/layout/tasksview.xml" value="0.275" />
         <entry key="..\:/Users/brute/AndroidStudioProjects/PlanYourDay/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/brute/AndroidStudioProjects/PlanYourDay/app/src/main/res/layout/fragment_edit.xml" value="0.1" />
         <entry key="..\:/Users/brute/AndroidStudioProjects/PlanYourDay/app/src/main/res/layout/fragment_edit_screen.xml" value="0.22333333333333336" />

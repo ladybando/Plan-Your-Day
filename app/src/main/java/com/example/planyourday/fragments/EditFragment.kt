@@ -1,18 +1,14 @@
-package com.example.planyourday
+package com.example.planyourday.fragments
 
 import android.os.Bundle
-import android.text.Layout
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
-import androidx.navigation.NavDirections
-import androidx.navigation.Navigation
-import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.findNavController
-import com.example.planyourday.EditFragmentDirections as EditFragmentDirections
+import com.example.planyourday.R
 
 
 class EditFragment : Fragment() {
@@ -30,7 +26,7 @@ class EditFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val save: Button = view.findViewById<Button>(R.id.saveBtn)
         val userEditTask = view.findViewById<EditText>(R.id.editTask).text.toString()
-        val action = EditFragmentDirections.actionEditFragmentToMainActivity(userEditTask)
+        val action = EditFragmentDirections.actionEditFragmentToListViewFragment(userEditTask)
         save.setOnClickListener {
             findNavController().navigate(action)
         }

@@ -1,30 +1,31 @@
-package com.example.planyourday
+package com.example.planyourday.adapter
 
 import android.graphics.Paint
-import android.graphics.Paint.STRIKE_THRU_TEXT_FLAG
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
-import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
-import com.example.planyourday.databinding.TasksviewBinding
+import com.example.planyourday.fragments.EditFragment
+import com.example.planyourday.R
+import com.example.planyourday.model.Task
+import com.example.planyourday.databinding.FragmentListViewBinding
 
 
 
 class Adapter(private val listOfTasks: MutableList<Task>) :
     RecyclerView.Adapter<Adapter.ViewHolder>() {
-    private lateinit var binding: TasksviewBinding
+    private lateinit var binding: FragmentListViewBinding
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        binding = TasksviewBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        binding = FragmentListViewBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         val context = parent.context
         val inflater = LayoutInflater.from(context)
         // Inflate the custom layout
-        val items = inflater.inflate(R.layout.tasksview, parent, false)
+        val items = inflater.inflate(R.layout.fragment_list_view, parent, false)
         // Return a new holder instance
         return ViewHolder(items)
 
@@ -32,7 +33,7 @@ class Adapter(private val listOfTasks: MutableList<Task>) :
 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = listOfTasks.get(position)
+        val item = listOfTasks[position]
         val checkbox = holder.checkbox
         holder.title.setText(item.title)
 
@@ -48,7 +49,7 @@ class Adapter(private val listOfTasks: MutableList<Task>) :
 
 
         // On long click of task go to edit screen
-        holder.itemView.setOnClickListener(object :View.OnClickListener{
+        holder.itemView.setOnClickListener(object : View.OnClickListener{
             override fun onClick(v: View?) {
 
                 val activity = v!!.context as AppCompatActivity
@@ -65,11 +66,11 @@ class Adapter(private val listOfTasks: MutableList<Task>) :
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val checkbox: CheckBox = itemView.findViewById<CheckBox>(R.id.checkbox)
+        val checkbox: CheckBox = itemView.findViewById(R.id.checkbox)
 
         // Your holder should contain and initialize a member variable
         // for any view that will be set as you render a row
-        val title: TextView = itemView.findViewById<TextView>(R.id.enteredTask)
+        val title: TextView = itemView.findViewById(R.id.enteredTask)
     }
 }
 

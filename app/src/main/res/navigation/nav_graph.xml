@@ -3,26 +3,35 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/mainActivity">
+    app:startDestination="@id/listViewFragment">
 
     <fragment
         android:id="@+id/editFragment"
-        android:name="com.example.planyourday.EditFragment"
+        android:name="com.example.planyourday.fragments.EditFragment"
         android:label="fragment_edit"
         tools:layout="@layout/fragment_edit" >
         <action
-            android:id="@+id/action_editFragment_to_mainActivity"
-            app:destination="@id/mainActivity" />
+            android:id="@+id/action_editFragment_to_listViewFragment"
+            app:destination="@id/listViewFragment" />
     </fragment>
 
-    <activity
-        android:id="@+id/mainActivity"
-        android:name="com.example.planyourday.MainActivity"
-        android:label="activity_main"
-        tools:layout="@layout/activity_main" >
+    <fragment
+        android:id="@+id/addTaskFragment"
+        android:name="com.example.planyourday.AddTaskFragment"
+        android:label="fragment_add_task"
+        tools:layout="@layout/fragment_add_task" >
+        <action
+            android:id="@+id/action_addTaskFragment_to_listViewFragment"
+            app:destination="@id/listViewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listViewFragment"
+        android:name="com.example.planyourday.fragments.ListViewFragment"
+        android:label="fragment_list_view"
+        tools:layout="@layout/fragment_list_view" >
         <argument
             android:name="userEditTask"
-            app:argType="string"/>
-    </activity>
+            app:argType="string" />
+    </fragment>
 
 </navigation>

@@ -2,4 +2,8 @@
     <string name="app_name">Plan Your Day</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="my_day">My Day</string>
+    <string name="new_task">Enter a task</string>
+    <string name="plus">+</string>
+    <string name="your_task">Your task will go here</string>
 </resources>
