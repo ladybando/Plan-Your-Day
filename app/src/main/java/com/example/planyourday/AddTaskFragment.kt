@@ -12,7 +12,7 @@ import com.example.planyourday.databinding.FragmentAddTaskBinding
 import com.example.planyourday.fragments.ListViewFragment
 import com.example.planyourday.model.Task
 import java.lang.ClassCastException
-
+//child/nested fragment
 class AddTaskFragment : Fragment() {
     private var _binding : FragmentAddTaskBinding? = null
     private val binding get() = _binding!!
@@ -28,11 +28,12 @@ class AddTaskFragment : Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        //set on click listener
         binding.addButton.setOnClickListener {
             val stringForTask = binding.task.text.toString()
             listOfTasks.add(Task(stringForTask)).toString()
             binding.task.text.clear(  )
-/*            val parentFragment: Fragment = ListViewFragment()
+/*          val parentFragment: Fragment = ListViewFragment()
             val transaction: FragmentTransaction = parentFragmentManager.beginTransaction()
             transaction.add(R.id.action_addTaskFragment_to_listViewFragment, parentFragment).addToBackStack(null).commit()
 

@@ -12,6 +12,7 @@ import com.example.planyourday.R
 import com.example.planyourday.adapter.Adapter
 import com.example.planyourday.databinding.FragmentListViewBinding
 import com.example.planyourday.model.Task
+//parent fragment
 
 class ListViewFragment : Fragment() {
     private var _binding: FragmentListViewBinding? = null
@@ -29,12 +30,14 @@ class ListViewFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        //access recyclerView here as recyclerView is in list_view_fragment.xml
         val listOfTasks = mutableListOf<Task>()
         val adapter = Adapter(listOfTasks)
         binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager = LinearLayoutManager(this.requireContext())
         displayFragment()
     }
+
     // Embeds the child fragment dynamically
    private fun displayFragment() {
         val childFragment: Fragment = AddTaskFragment()
@@ -50,6 +53,4 @@ class ListViewFragment : Fragment() {
             transaction.remove( childFragment).commit()
         }
     }
-
-
 }

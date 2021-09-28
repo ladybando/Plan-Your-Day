@@ -11,21 +11,21 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.planyourday.fragments.EditFragment
 import com.example.planyourday.R
 import com.example.planyourday.model.Task
-import com.example.planyourday.databinding.FragmentListViewBinding
-
+import com.example.planyourday.databinding.ItemLayoutBinding
 
 
 class Adapter(private val listOfTasks: MutableList<Task>) :
     RecyclerView.Adapter<Adapter.ViewHolder>() {
-    private lateinit var binding: FragmentListViewBinding
+    private lateinit var binding: ItemLayoutBinding
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        binding = FragmentListViewBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        //inflates
+        binding = ItemLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         val context = parent.context
         val inflater = LayoutInflater.from(context)
         // Inflate the custom layout
-        val items = inflater.inflate(R.layout.fragment_list_view, parent, false)
+        val items = inflater.inflate(R.layout.item_layout, parent, false)
         // Return a new holder instance
         return ViewHolder(items)
 
@@ -54,7 +54,7 @@ class Adapter(private val listOfTasks: MutableList<Task>) :
 
                 val activity = v!!.context as AppCompatActivity
                 val editFragment = EditFragment()
-                activity.supportFragmentManager.beginTransaction().replace(R.id.mainActivity,editFragment).addToBackStack(null).commit()
+                activity.supportFragmentManager.beginTransaction().replace(R.id.listViewFragment, editFragment).addToBackStack(null).commit()
             }
         })
 

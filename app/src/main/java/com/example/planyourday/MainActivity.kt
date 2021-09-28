@@ -26,7 +26,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var itemLayoutBinding: ItemLayoutBinding
     private lateinit var addTaskBinding:FragmentAddTaskBinding
-/*    val listViewBinding = FragmentListViewBinding.inflate(layoutInflater)
+
+/* TODO Didn't want to delete in case it was needed for functionality
+ val listViewBinding = FragmentListViewBinding.inflate(layoutInflater)
     val itemTouchHelper = ItemTouchHelper(swipeToDeleteCallBack)
     itemTouchHelper.attachToRecyclerView(listViewBinding.recyclerView)*/
 
@@ -37,7 +39,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        
         //sets main activity as host fragment
         val navHostFragment = supportFragmentManager
             .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
@@ -45,6 +46,7 @@ class MainActivity : AppCompatActivity() {
 
         itemLayoutBinding = ItemLayoutBinding.inflate(layoutInflater)
         // Display current user date in textView
+        //TODO this can probably move to AddTaskFragment
         val dateDisplay: TextView = itemLayoutBinding.date
         dateDisplay.text = SimpleDateFormat("EEEE, MMMM dd, yyyy").format(Date())
 
