@@ -21,11 +21,14 @@ import java.util.*
 
 class MainActivity : AppCompatActivity() {
     private lateinit var navController: NavController
-
+    private val listOfTasks = mutableListOf<Task>()
+    private val adapter = Adapter(listOfTasks)
     private lateinit var binding: ActivityMainBinding
     private lateinit var itemLayoutBinding: ItemLayoutBinding
-    private lateinit var listViewBinding: FragmentListViewBinding
     private lateinit var addTaskBinding:FragmentAddTaskBinding
+/*    val listViewBinding = FragmentListViewBinding.inflate(layoutInflater)
+    val itemTouchHelper = ItemTouchHelper(swipeToDeleteCallBack)
+    itemTouchHelper.attachToRecyclerView(listViewBinding.recyclerView)*/
 
     //private val args: MainActivityArgs by navArgs()
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,25 +36,21 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val listOfTasks = mutableListOf<Task>()
-        val adapter = Adapter(listOfTasks)
-        itemLayoutBinding = ItemLayoutBinding.inflate(layoutInflater)
-        itemLayoutBinding.recyclerView.adapter = adapter
-        itemLayoutBinding.recyclerView.layoutManager = LinearLayoutManager(this)
+
         
         //sets main activity as host fragment
         val navHostFragment = supportFragmentManager
             .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
 
-        listViewBinding = FragmentListViewBinding.inflate(layoutInflater)
+        itemLayoutBinding = ItemLayoutBinding.inflate(layoutInflater)
         // Display current user date in textView
-        val dateDisplay: TextView = listViewBinding.date
+        val dateDisplay: TextView = itemLayoutBinding.date
         dateDisplay.text = SimpleDateFormat("EEEE, MMMM dd, yyyy").format(Date())
 
         addTaskBinding= FragmentAddTaskBinding.inflate(layoutInflater)
         addTaskBinding.addButton.setOnClickListener {
-            val stringForTask = findViewById<EditText>(R.id.task).text.toString()
+            val stringForTask = addTaskBinding.task.text.toString()
             listOfTasks.add(Task(stringForTask)).toString()
             addTaskBinding.task.text.clear()
 
@@ -67,8 +66,6 @@ class MainActivity : AppCompatActivity() {
                 adapter.notifyItemRemoved(position)
             }
         }
-        val itemTouchHelper = ItemTouchHelper(swipeToDeleteCallBack)
-        itemTouchHelper.attachToRecyclerView(itemLayoutBinding.recyclerView)
 
        //args.userEditTask
 

@@ -10,6 +10,9 @@
         android:name="com.example.planyourday.fragments.EditFragment"
         android:label="fragment_edit"
         tools:layout="@layout/fragment_edit" >
+        <argument
+            android:name="userInput"
+            app:argType="string" />
         <action
             android:id="@+id/action_editFragment_to_listViewFragment"
             app:destination="@id/listViewFragment" />
@@ -20,6 +23,9 @@
         android:name="com.example.planyourday.AddTaskFragment"
         android:label="fragment_add_task"
         tools:layout="@layout/fragment_add_task" >
+        <action
+            android:id="@+id/action_addTaskFragment_to_editFragment"
+            app:destination="@id/editFragment" />
         <action
             android:id="@+id/action_addTaskFragment_to_listViewFragment"
             app:destination="@id/listViewFragment" />
@@ -32,6 +38,9 @@
         <argument
             android:name="userEditTask"
             app:argType="string" />
+        <action
+            android:id="@+id/action_listViewFragment_to_addTaskFragment"
+            app:destination="@id/addTaskFragment" />
     </fragment>
 
 </navigation>

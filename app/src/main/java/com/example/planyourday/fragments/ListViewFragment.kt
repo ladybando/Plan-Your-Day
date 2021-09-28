@@ -6,34 +6,50 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.FragmentTransaction
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.planyourday.AddTaskFragment
 import com.example.planyourday.R
-
-
-
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+import com.example.planyourday.adapter.Adapter
+import com.example.planyourday.databinding.FragmentListViewBinding
+import com.example.planyourday.model.Task
 
 class ListViewFragment : Fragment() {
+    private var _binding: FragmentListViewBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?,
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_list_view, container, false)
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = FragmentListViewBinding.inflate(inflater, container, false)
+        return binding.root
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        insertNestedFragment()
+        val listOfTasks = mutableListOf<Task>()
+        val adapter = Adapter(listOfTasks)
+        binding.recyclerView.adapter = adapter
+        binding.recyclerView.layoutManager = LinearLayoutManager(this.requireContext())
+        displayFragment()
     }
-
     // Embeds the child fragment dynamically
-    private fun insertNestedFragment() {
+   private fun displayFragment() {
         val childFragment: Fragment = AddTaskFragment()
         val transaction: FragmentTransaction = childFragmentManager.beginTransaction()
-        transaction.replace(R.id.child_fragment_container, childFragment).commit()
+        transaction.add(R.id.main_fragment_container, childFragment).addToBackStack(null).commit()
     }
+
+    fun closeFragment(){
+        val childFragment = AddTaskFragment()
+        val childFragmentView = childFragmentManager.findFragmentById(R.id.action_listViewFragment_to_addTaskFragment)
+        if (childFragmentView != null){
+            val transaction = childFragmentManager.beginTransaction()
+            transaction.remove( childFragment).commit()
+        }
+    }
+
+
 }
